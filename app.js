@@ -10,6 +10,11 @@ const cors = require('cors')
 const xss = require('xss-clean')
 const rateLimiter = require('express-rate-limit')
 
+// swagger UI
+const swaggerUi = require('swagger-ui-express')
+const yamljs = require('yamljs')
+const swaggerDocument = yamljs.load('./swagger.yaml')
+
 app.set('trust proxy', 1);
 app.use(
   rateLimiter({
@@ -35,9 +40,12 @@ app.use(express.json());
 // routes
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs', auth, jobsRouter) // authanticate all the routes in jobsRouter
+
 app.get('/', (req, res) => {
-  res.send('jobs api')
+  res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>')
 })
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
