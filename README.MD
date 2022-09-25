@@ -1,7 +1,7 @@
 
 # Jobs API Features: 
 ##### Register user
-- Validate the name, email, password in the Mongoose model (There are validation, default values and enum for model fields)
+- Validate the name, email, password in the Mongoose model (There is validation, default values and enum for model fields)
 - Hash Password (with bcryptjs)
 - Save User
 - Generate Token (Using jsonwebtoken module)
@@ -51,7 +51,8 @@ Email Validation Regex
 
 # Mongoose Errors
 Instade of using the built in error handler, custom error handler middleware was created.
-Create custom errors classes, by extending Error class. also, http-status-codes module was used.
+
+Custom errors classes were created, by extending Error class. also, http-status-codes module was used.
 In the custom error handler middleware, the bellow mongoose errors were overridden:
 - Validation Errors
 - Duplicate (Email)
