@@ -1,7 +1,7 @@
 
 # Jobs API Features: 
 ##### Register user
-- Validate the name, email, password in the Mongoose model (There is validation, default values and enum for model fields)
+- Validate the name, email, password in the Mongoose model (There are validation, default values and enum for model fields)
 - Hash Password (with bcryptjs)
 - Save User
 - Generate Token (Using jsonwebtoken module)
